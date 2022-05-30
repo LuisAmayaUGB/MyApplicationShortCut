@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myapplicationshortcut">
+
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
 
     <application
@@ -10,6 +11,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplicationShortCut">
+        <activity
+            android:name=".MainActivity3"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity2"
+            android:exported="true" />
+
+        <receiver
+            android:name=".MiApp"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/mi_app_info" />
+        </receiver>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
